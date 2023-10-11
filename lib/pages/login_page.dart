@@ -23,18 +23,18 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Colors.grey[300],
       body:
 
-          //For Scrolling==============
+          //For Scrolling=======================================================
           SingleChildScrollView(
         child: Center(
           child:
 
-              //all childrens under this main column============
+              //all childrens under this main column============================
               Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
 
-              //Lock icon==========================
+              //Lock icon=======================================================
               const Icon(
                 Icons.lock,
                 size: 100,
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 50),
 
-              //Welcome Text===========================
+              //Welcome Text====================================================
               Text(
                 'Welcome back you\'ve been missed!',
                 style: TextStyle(
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              //username Textfield====================
+              //username Textfield==============================================
               MyTextField(
                 controller: usernameController,
                 hintText: 'Username',
@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              //password textfield=====================
+              //password textfield==============================================
               MyTextField(
                 controller: passwordController,
                 hintText: 'Password',
@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              //forgot password==========================
+              //forgot password=================================================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
@@ -87,8 +87,11 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              //signin button============================
-              MyButton(onTap: signUserIn),
+              //signin button===================================================
+              MyButton(
+                onPressed: signUserIn,
+                buttonText: 'Sign In',
+              ),
 
               const SizedBox(height: 45),
 
@@ -122,7 +125,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 45),
 
-              //two buttons====================
+              //two buttons=====================================================
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
@@ -134,7 +137,7 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 45),
 
-              //register text========================
+              //register text===================================================
               RichText(
                 text: TextSpan(children: [
                   TextSpan(
