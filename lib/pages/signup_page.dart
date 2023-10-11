@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:material_login_ui/components/my_button.dart';
@@ -111,13 +109,13 @@ class _SignupState extends State<Signup> {
               //register text===================================================
               RichText(
                 text: TextSpan(children: [
-                  TextSpan(
+                  const TextSpan(
                     text: 'Not a member?  ',
                     style: TextStyle(color: Colors.black),
                   ),
                   TextSpan(
                       text: 'Register Now',
-                      style: TextStyle(color: Colors.blue),
+                      style: const TextStyle(color: Colors.blue),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
