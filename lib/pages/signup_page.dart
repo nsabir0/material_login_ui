@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:material_login_ui/components/my_button.dart';
 import 'package:material_login_ui/components/my_textfield.dart';
+import 'package:material_login_ui/controller/getx_controller.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -11,10 +13,13 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  //getting getx controller in this page========================================
+  xController _controller = Get.put(xController());
+
   // text editing controllers
-  final fullnameController = TextEditingController();
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
+  //final fullnameController = TextEditingController();
+  //final usernameController = TextEditingController();
+  //final passwordController = TextEditingController();
 
   // sign user in method
   void signUserIn() {}
@@ -51,7 +56,7 @@ class _SignupState extends State<Signup> {
 
               //Fullname Textfield==============================================
               MyTextField(
-                controller: fullnameController,
+                controller: _controller.nameController.value,
                 hintText: 'Full Name',
                 obscureText: false,
               ),
@@ -60,7 +65,7 @@ class _SignupState extends State<Signup> {
 
               //username Textfield==============================================
               MyTextField(
-                controller: usernameController,
+                controller: _controller.emailController.value,
                 hintText: 'Username',
                 obscureText: false,
               ),
@@ -69,7 +74,7 @@ class _SignupState extends State<Signup> {
 
               //password textfield==============================================
               MyTextField(
-                controller: passwordController,
+                controller: _controller.passController.value,
                 hintText: 'Password',
                 obscureText: true,
               ),
@@ -78,7 +83,7 @@ class _SignupState extends State<Signup> {
 
               //Confirm password textfield==============================================
               MyTextField(
-                controller: passwordController,
+                controller: _controller.cfPassController.value,
                 hintText: 'Confirm Password',
                 obscureText: true,
               ),
@@ -102,7 +107,7 @@ class _SignupState extends State<Signup> {
               const SizedBox(height: 25),
 
               //signin button===================================================
-              MyButton(onPressed: signUserIn, buttonText: 'Sign Out'),
+              MyButton(onPressed: signUserIn, buttonText: 'Join Us'),
 
               const SizedBox(height: 45),
 

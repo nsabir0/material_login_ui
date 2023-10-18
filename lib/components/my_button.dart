@@ -12,11 +12,12 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
+      //padding: const EdgeInsets.all(10),
+      /* decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(8),
-      ),
+      ), */
+
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
