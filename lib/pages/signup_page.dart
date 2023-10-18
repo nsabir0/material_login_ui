@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:material_login_ui/components/my_button.dart';
+//import 'package:material_login_ui/components/my_button.dart';
 import 'package:material_login_ui/components/my_textfield.dart';
 import 'package:material_login_ui/controller/getx_controller.dart';
 
@@ -14,7 +14,7 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   //getting getx controller in this page========================================
-  xController _controller = Get.put(xController());
+  final xController _controller = Get.put(xController());
 
   // text editing controllers
   //final fullnameController = TextEditingController();
@@ -107,7 +107,27 @@ class _SignupState extends State<Signup> {
               const SizedBox(height: 25),
 
               //signin button===================================================
-              MyButton(onPressed: signUserIn, buttonText: 'Join Us'),
+              Obx(() => InkWell(
+                    onTap: () {
+                      _controller.loginApi();
+                    },
+                    child: _controller.loading.value
+                        ? const CircularProgressIndicator()
+                        : Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Text(
+                              'Join Us',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
+                            ),
+                          ),
+                  )),
 
               const SizedBox(height: 45),
 
