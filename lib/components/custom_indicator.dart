@@ -22,9 +22,8 @@ class CheckMarkStyle {
   });
 
   static const defaultStyle = CheckMarkStyle(
-    loading: CheckMarkColors(content: Colors.white, background: Colors.black),
-    completed:
-        CheckMarkColors(content: Colors.white, background: Colors.greenAccent),
+    loading: CheckMarkColors(content: Colors.black, background: Colors.white),
+    completed: CheckMarkColors(content: Colors.green, background: Colors.white),
   );
 }
 
@@ -52,10 +51,11 @@ class _CheckMarkIndicatorState extends State<CheckMarkIndicator>
   @override
   Widget build(BuildContext context) {
     return CustomMaterialIndicator(
+      elevation: 3,
       withRotation: false,
       onRefresh: () => Future.delayed(const Duration(seconds: 2)),
       durations: const RefreshIndicatorDurations(
-        completeDuration: Duration(seconds: 2),
+        completeDuration: Duration(seconds: 1),
       ),
       onStateChanged: (change) {
         /// set [_renderCompleteState] to true when controller.state become completed
@@ -67,22 +67,19 @@ class _CheckMarkIndicatorState extends State<CheckMarkIndicator>
           _renderCompleteState = false;
         }
       },
-      indicatorBuilder: (
-        BuildContext context,
-        IndicatorController controller,
-      ) {
+      indicatorBuilder: (BuildContext context, IndicatorController controller) {
         final style = _renderCompleteState
             ? widget.style.completed
             : widget.style.loading;
         return AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
           alignment: Alignment.center,
+          duration: const Duration(milliseconds: 150),
           decoration: BoxDecoration(
             color: style.background,
             shape: BoxShape.circle,
           ),
           child: _renderCompleteState
-              ? const Icon(Icons.check, color: Colors.white)
+              ? const Icon(Icons.check, color: Colors.green)
               : SizedBox(
                   height: 24,
                   width: 24,
