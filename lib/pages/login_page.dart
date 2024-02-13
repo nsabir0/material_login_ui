@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:material_login_ui/components/custom_indicator.dart';
 import 'package:material_login_ui/components/my_button.dart';
 import 'package:material_login_ui/components/my_textfield.dart';
 import 'package:material_login_ui/components/square_tile.dart';
 import 'package:material_login_ui/pages/signup_page.dart';
-import 'package:flutter/gestures.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -21,15 +22,13 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body:
-
-          //For Scrolling=======================================================
-          SingleChildScrollView(
+      body: CheckMarkIndicator(
+        child: SingleChildScrollView(
         child: Center(
           child:
 
-              //all childrens under this main column============================
-              Column(
+          //all childrens under this main column============================
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
@@ -162,6 +161,7 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }
